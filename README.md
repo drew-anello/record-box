@@ -22,13 +22,16 @@ Contributions to the Record Box project are welcome and appreciated! If you woul
 1. Fork the repository.
 
 2. Create a new branch for your changes:
-    ```git checkout -b my-new-feature
-    ```
+
+         git checkout -b my-new-feature
+
 3. Make your changes and commit them:
-```git commit -am 'Add some feature'
-```
+
+        git commit -am 'Add some feature'      
 4. Push to the branch:
-```git push origin my-new-feature```
+
+        git push origin my-new-feature
+
 5. Create a new pull request.
 
 
