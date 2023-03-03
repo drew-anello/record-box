@@ -1,27 +1,35 @@
-# Next.js + Tailwind CSS Example
+# Record Box
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-## Deploy your own
+Record Box is a web application that allows users to share record recommendations with each other. The application is built using Next.js, Tailwind CSS, PostgreSQL, and TypeScript.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+#### Project Overview
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+The goal of this project is to create a platform where music lovers can share their favorite records with each other. Users can create an account, browse existing record recommendations, and submit their own recommendations to share with the community.
 
-## How to use
+The application is being built using modern web development technologies such as Next.js, Tailwind CSS, PostgreSQL, and TypeScript. These technologies were chosen for their ability to provide a great developer experience, high performance, and scalability.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+#### Current Status
+The Record Box project is currently in development and is not yet finished. Some of the key features that are currently being worked on include:
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+<li>User authentication and authorization</li>
+<li>Record recommendation submissions</li>
+<li>Record recommendation browsing</li>
+
+### Contributing
+
+Contributions to the Record Box project are welcome and appreciated! If you would like to contribute, please follow these steps:
+<ol>
+<li>Fork the repository.</li>
+
+<li>Create a new branch for your changes:</li>
+    ```git checkout -b my-new-feature
+    ```
+<li>Make your changes and commit them:</li>
+```git commit -am 'Add some feature'
 ```
+<li>Push to the branch:</li>
+```git push origin my-new-feature```
+<li>Create a new pull request.</li>
+</ol>
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
