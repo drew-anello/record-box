@@ -19,17 +19,16 @@ The Record Box project is currently in development and is not yet finished. Some
 ### Contributing
 
 Contributions to the Record Box project are welcome and appreciated! If you would like to contribute, please follow these steps:
-<ol>
-<li>Fork the repository.</li>
+1. Fork the repository.
 
-<li>Create a new branch for your changes:</li>
+2. Create a new branch for your changes:
     ```git checkout -b my-new-feature
     ```
-<li>Make your changes and commit them:</li>
+3. Make your changes and commit them:
 ```git commit -am 'Add some feature'
 ```
-<li>Push to the branch:</li>
+4. Push to the branch:
 ```git push origin my-new-feature```
-<li>Create a new pull request.</li>
-</ol>
+5. Create a new pull request.
+
 
