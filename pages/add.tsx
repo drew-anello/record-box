@@ -29,32 +29,40 @@ export default function Add() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Album Cover:
-          <input type="text" value={albumCover} onChange={handleAlbumCoverChange} />
-        </label>
+    <div className="flex flex-col items-center justify-center h-screen bg-purple-800">
+      <div className="bg-green-200 rounded-md p-8 shadow-md">
+        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+          <div>
+            <label>
+              Album Cover Image:
+              <input type="text" value={albumCover} onChange={handleAlbumCoverChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Album Name:
+              <input type="text" value={albumName} onChange={handleAlbumNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Release Year:
+              <input type="text" value={albumYear} onChange={handleAlbumYearChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+            </label>
+          </div>
+          <div>
+            <label>
+              Favorite Song on the Album:
+              <input type="text" value={favoriteSong} onChange={handleFavoriteSongChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+            </label>
+          </div>
+          <div className="col-span-2">
+            <button type="submit" className="w-full bg-purple-500 text-white py-2 px-4 mt-4 rounded-md shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
-      <div>
-        <label>
-          Album Name:
-          <input type="text" value={albumName} onChange={handleAlbumNameChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Year Album Was Made:
-          <input type="text" value={albumYear} onChange={handleAlbumYearChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Favorite Song on the Album:
-          <input type="text" value={favoriteSong} onChange={handleFavoriteSongChange} />
-        </label>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
 }
