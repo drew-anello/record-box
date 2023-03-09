@@ -11,10 +11,12 @@ export default async function handler (req, res) {
     userName
   } = req.body
 
+  const image = albumCoverImage || 'https://i.imgur.com/zVSRc6d.jpg'
+
   try {
     const newPost = await prisma.post.create({
       data: {
-        albumCoverImage,
+        albumCoverImage: image,
         albumName,
         releaseYear,
         favoriteSong,
