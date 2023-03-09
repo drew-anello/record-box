@@ -14,6 +14,7 @@ model Post {
   albumCoverImage   String
   albumName         String
   releaseYear  Int
-  favoriteSong String?
+  favoriteSong String
+  artistName String
   userName String
 }

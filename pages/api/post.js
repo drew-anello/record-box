@@ -2,8 +2,14 @@ import { PrismaClient } from '@prisma/client'
 
 export default async function handler (req, res) {
   const prisma = new PrismaClient()
-  const { albumCoverImage, albumName, releaseYear, favoriteSong, userName } =
-    req.body
+  const {
+    albumCoverImage,
+    albumName,
+    releaseYear,
+    favoriteSong,
+    artistName,
+    userName
+  } = req.body
 
   try {
     const newPost = await prisma.post.create({
@@ -12,6 +18,7 @@ export default async function handler (req, res) {
         albumName,
         releaseYear,
         favoriteSong,
+        artistName,
         userName
       }
     })

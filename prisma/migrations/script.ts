@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 app.post('/submit-form', async (req, res) => {
-  const { albumCoverImage, albumName, releaseYear, favoriteSong, userName } = req.body
+  const { albumCoverImage, albumName, releaseYear, favoriteSong, artistName, userName } = req.body
 
   try {
     const newPost = await prisma.post.create({
@@ -11,6 +11,7 @@ app.post('/submit-form', async (req, res) => {
         albumName,
         releaseYear,
         favoriteSong,
+        artistName,
         userName,
       },
     })

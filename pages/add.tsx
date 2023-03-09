@@ -4,6 +4,7 @@ export default function Add() {
   const [albumCover, setAlbumCover] = useState("");
   const [albumName, setAlbumName] = useState("");
   const [albumYear, setAlbumYear] = useState("");
+  const [artistName, setArtistName] = useState("");
   const [yourName, setYourName] = useState("");
   const [favoriteSong, setFavoriteSong] = useState("");
 
@@ -20,6 +21,7 @@ export default function Add() {
           albumName,
           releaseYear: parseInt(albumYear),
           favoriteSong,
+          artistName,
           userName: yourName,
         }),
       });
@@ -29,6 +31,7 @@ export default function Add() {
         setAlbumName("");
         setAlbumYear("");
         setFavoriteSong("");
+        setArtistName("");
         setYourName("");
       } else {
         console.log("Error adding the post");
@@ -55,6 +58,9 @@ export default function Add() {
     setFavoriteSong(event.target.value);
   };
 
+  const handleArtistNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setArtistName(event.target.value);
+  };
   const handleYourNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setYourName(event.target.value);
   };
@@ -92,7 +98,13 @@ export default function Add() {
               <input type="text" value={albumYear} onChange={handleAlbumYearChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
           </div>
-          <div className="col-span-2">
+          <div>
+            <label>
+              Artist Name:
+              <input type="text" value={artistName} onChange={handleArtistNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+            </label>
+          </div>
+          <div>
             <label>
               Your Name:
               <input type="text" value={yourName} onChange={handleYourNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
