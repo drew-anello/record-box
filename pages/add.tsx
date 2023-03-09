@@ -64,9 +64,14 @@ export default function Add() {
   const handleYourNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setYourName(event.target.value);
   };
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      handleSubmit(event);
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (event: any) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const form = event.currentTarget.form;
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.click();
+      }
     }
   };
 

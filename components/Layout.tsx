@@ -1,15 +1,24 @@
-import { ReactNode } from 'react';
-import Nav from './Nav';
+// Layout.tsx
 
-type LayoutProps = {
-  children: ReactNode;
-}
+import React from "react";
+import Head from "next/head";
+import Nav from "./Nav";
 
-export default function Layout({ children }: LayoutProps) {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: Props) => {
   return (
-    <div>
+    <div className="bg-purple-800">
+      <Head>
+        <title>Record Box</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Nav />
-      {children}
+      <main>{children}</main>
     </div>
   );
-}
+};
+
+export default Layout;

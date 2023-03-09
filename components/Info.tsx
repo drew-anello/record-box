@@ -1,37 +1,37 @@
-import React from "react";
+import { FC } from "react";
+import { Post } from "../pages";
 
-export default function Info () {
+type Props = {
+    posts: Post[];
+};
+
+const Info: FC<Props> = ({ posts }) => {
     return (
-       
-        <div className="grid grid-cols-1 gap-x-0 gap-y-5 sm:grid-cols-3">
-        <div className="bg-purple-500 rounded-lg p-4 max-w-sm ">
-            <img src="https://i.imgur.com/bcCGqnA.jpg" className="w-96 h-80 " />
-            <h1>Hello world</h1>
-            <h2>This is a test</h2>
-            <h3>foo</h3>
-            <h4>bar</h4>
+
+        <div className="flex flex-wrap justify-center">
+            {posts.map((post) => (
+                <div
+                    key={post.albumName}
+                    className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-2 py-2"
+                >
+                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                        <img
+                            className="w-full h-48 object-cover"
+                            src={post.albumCoverImage}
+                            alt={post.albumName}
+                        />
+                        <div className="px-6 py-4 bg-white">
+                            <div className="font-bold text-xl mb-2">{post.albumName}</div>
+                            <p className="text-gray-700 text-base">{post.artistName}</p>
+                            <p className="text-gray-700 text-base">{post.releaseYear}</p>
+                            <p className="text-gray-700 text-base">{post.favoriteSong}</p>
+                            <p className="text-gray-700 text-base">Shared by: {post.userName}</p>
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
-        <div className="bg-purple-500 rounded-lg p-4 max-w-sm ">
-            <img src="https://i.imgur.com/bcCGqnA.jpg" className="w-96 h-80 " />
-            <h1>Hello world</h1>
-            <h2>This is a test</h2>
-            <h3>foo</h3>
-            <h4>bar</h4>
-        </div>
-        <div className="bg-purple-500 rounded-lg p-4 max-w-sm ">
-            <img src="https://i.imgur.com/bcCGqnA.jpg" className="w-96 h-80 " />
-            <h1>Hello world</h1>
-            <h2>This is a test</h2>
-            <h3>foo</h3>
-            <h4>bar</h4>
-        </div>
-        <div className="bg-purple-500 rounded-lg p-4 max-w-sm ">
-            <img src="https://i.imgur.com/bcCGqnA.jpg" className="w-96 h-80 " />
-            <h1>Hello world</h1>
-            <h2>This is a test</h2>
-            <h3>foo</h3>
-            <h4>bar</h4>
-        </div>
-        </div>
-    )
-}
+    );
+};
+
+export default Info;
