@@ -27,7 +27,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
     <div>
 
-      <h1 className="text-3xl font-bold text-center text-blue-700 my-10 ">Record Box</h1>
+      <h1 className="text-3xl font-bold text-blue-500 my-10 text-center w-full">Record Box</h1>
       <Info posts={posts} />
 
     </div>

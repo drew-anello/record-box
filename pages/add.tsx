@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Add() {
   const [albumCover, setAlbumCover] = useState("");
@@ -8,8 +9,14 @@ export default function Add() {
   const [yourName, setYourName] = useState("");
   const [favoriteSong, setFavoriteSong] = useState("");
 
+  const router = useRouter()
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!albumName || !albumYear || !favoriteSong || !artistName || !yourName) {
+      alert("Please fill out all required fields");
+      return;
+    }
     try {
       const response = await fetch("/api/post", {
         method: "POST",
@@ -25,8 +32,10 @@ export default function Add() {
           userName: yourName,
         }),
       });
+
       if (response.ok) {
-        console.log("Post added");
+        alert('Album Added');
+        router.push('/')
         setAlbumCover("");
         setAlbumName("");
         setAlbumYear("");
@@ -87,31 +96,30 @@ export default function Add() {
           </div>
           <div>
             <label>
-              Album Name:
+              Album Name: <span className="text-red-500">*</span>
               <input type="text" value={albumName} onChange={handleAlbumNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
           </div>
           <div>
             <label>
-              Favorite Song on the Album:
+              Favorite Song on the Album: <span className="text-red-500">*</span>
               <input type="text" value={favoriteSong} onChange={handleFavoriteSongChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
           </div>
           <div>
             <label>
-              Release Year:
+              Release Year: <span className="text-red-500">*</span>
               <input type="text" value={albumYear} onChange={handleAlbumYearChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
           </div>
           <div>
             <label>
-              Artist Name:
-              <input type="text" value={artistName} onChange={handleArtistNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+              Artist Name: <span className="text-red-500">*</span>                     <input type="text" value={artistName} onChange={handleArtistNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
           </div>
           <div>
             <label>
-              Your Name:
+              Your Name: <span className="text-red-500">*</span>
               <input type="text" value={yourName} onChange={handleYourNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
           </div>
