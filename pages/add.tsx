@@ -1,36 +1,67 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Add() {
-  const [albumCover, setAlbumCover] = useState('');
-  const [albumName, setAlbumName] = useState('');
-  const [albumYear, setAlbumYear] = useState('');
-  const [yourName, setYourName] = useState('');
-  const [favoriteSong, setFavoriteSong] = useState('');
+  const [albumCover, setAlbumCover] = useState("");
+  const [albumName, setAlbumName] = useState("");
+  const [albumYear, setAlbumYear] = useState("");
+  const [yourName, setYourName] = useState("");
+  const [favoriteSong, setFavoriteSong] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(albumCover, albumName, albumYear, favoriteSong);
-    // You can submit the form data to your backend API here
+    try {
+      const response = await fetch("/api/post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          albumCoverImage: albumCover,
+          albumName,
+          releaseYear: parseInt(albumYear),
+          favoriteSong,
+          userName: yourName,
+        }),
+      });
+      if (response.ok) {
+        console.log("Post added");
+        setAlbumCover("");
+        setAlbumName("");
+        setAlbumYear("");
+        setFavoriteSong("");
+        setYourName("");
+      } else {
+        console.log("Error adding the post");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleAlbumCoverChange = (event) => {
+  const handleAlbumCoverChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAlbumCover(event.target.value);
   };
 
-  const handleAlbumNameChange = (event) => {
+
+  const handleAlbumNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAlbumName(event.target.value);
   };
 
-  const handleAlbumYearChange = (event) => {
+  const handleAlbumYearChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAlbumYear(event.target.value);
   };
 
-  const handleFavoriteSongChange = (event) => {
+  const handleFavoriteSongChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFavoriteSong(event.target.value);
   };
 
-  const handleYourNameChange = (event) => {
+  const handleYourNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setYourName(event.target.value);
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit(event);
+    }
   };
 
   return (
@@ -48,7 +79,7 @@ export default function Add() {
               Album Name:
               <input type="text" value={albumName} onChange={handleAlbumNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
             </label>
-          </div>  
+          </div>
           <div>
             <label>
               Favorite Song on the Album:
@@ -62,12 +93,11 @@ export default function Add() {
             </label>
           </div>
           <div className="col-span-2">
-          <label>
-            Your Name: 
-            <input type="text" value={yourName} onChange={handleYourNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" /> 
-          </label>
+            <label>
+              Your Name:
+              <input type="text" value={yourName} onChange={handleYourNameChange} className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring focus:ring-purple-500 focus:ring-opacity-50" />
+            </label>
           </div>
-        
           <div className="col-span-2">
             <button type="submit" className="w-full bg-purple-500 text-white py-2 px-4 mt-4 rounded-md shadow-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
               Submit
