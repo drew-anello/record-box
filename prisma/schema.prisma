@@ -15,4 +15,5 @@ model Post {
   albumName         String
   releaseYear  Int
   favoriteSong String?
+  userName String
 }
