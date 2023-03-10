@@ -3,6 +3,7 @@ import Info from "../components/Info"
 import { PrismaClient } from "@prisma/client"
 
 type Post = {
+  id: number;
   albumCoverImage: string;
   albumName: string;
   releaseYear: number;
