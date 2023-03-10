@@ -13,7 +13,9 @@ export default function About() {
                         src="https://i.imgur.com/lFl8rSH.jpg"
                         alt="Picture of Drew Anello"
                         className="w-1/2 md:w-1/3 lg:w-1/4 mx-auto rounded-full"
-                        domains={["i.imgur.com"]}
+                        loader={({ src, width, quality }) => {
+                            return `${src}?w=${width}&q=${quality || 75}`
+                        }}
                         width={75}
                         height={75}
                     />
