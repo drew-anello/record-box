@@ -1,7 +1,6 @@
-import { PrismaClient } from '@prisma/client'
+import createPost from './createPost'
 
 export default async function handler (req, res) {
-  const prisma = new PrismaClient()
   const {
     albumCoverImage,
     albumName,
@@ -14,21 +13,17 @@ export default async function handler (req, res) {
   const image = albumCoverImage || 'https://i.imgur.com/zVSRc6d.jpg'
 
   try {
-    const newPost = await prisma.post.create({
-      data: {
-        albumCoverImage: image,
-        albumName,
-        releaseYear,
-        favoriteSong,
-        artistName,
-        userName
-      }
+    const newPost = await createPost({
+      albumCoverImage: image,
+      albumName,
+      releaseYear,
+      favoriteSong,
+      artistName,
+      userName
     })
     res.status(201).json({ message: 'Post created', post: newPost })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Error creating post' })
-  } finally {
-    await prisma.$disconnect()
   }
 }
