@@ -73,7 +73,7 @@ export default function Add() {
   const handleYourNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setYourName(event.target.value);
   };
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const handleKeyDown = (event: any) => {
       if (event.key === "Enter") {
         event.preventDefault();
