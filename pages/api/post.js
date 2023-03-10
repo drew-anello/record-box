@@ -32,4 +32,3 @@ export default async function handler (req, res) {
     await prisma.$disconnect()
   }
 }
-export Default Post

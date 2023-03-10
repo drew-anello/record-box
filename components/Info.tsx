@@ -2,7 +2,7 @@ import { FC } from "react";
 import Post from "../pages/api/post";
 
 type Props = {
-    posts: Post[];
+    posts: typeof Post[];
 };
 
 const Info: FC<Props> = ({ posts }) => {
