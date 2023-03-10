@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Post } from "../pages";
+import { Posts } from '../pages/api/post'
 
 type Props = {
     posts: Post[];
