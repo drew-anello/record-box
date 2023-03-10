@@ -19,10 +19,12 @@ const prisma = new PrismaClient()
 
 export const getStaticProps = async () => {
   const posts = await prisma.post.findMany();
+  console.log('this worked');
   return {
     props: { posts },
   };
 };
+
 const Home: NextPage<Props> = ({ posts }) => {
   return (
 
