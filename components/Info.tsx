@@ -1,8 +1,9 @@
 import { FC } from "react";
-import Post from "../pages/api/post";
+// import Post from "../pages/api/post";
+import { Post } from "../types/types";
 
 type Props = {
-    posts: typeof Post[];
+    posts: Post[];
 };
 
 const Info: FC<Props> = ({ posts }) => {
