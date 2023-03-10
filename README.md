@@ -10,11 +10,12 @@ The goal of this project is to create a platform where music lovers can share th
 The application is being built using modern web development technologies such as Next.js, Tailwind CSS, PostgreSQL, and TypeScript. These technologies were chosen for their ability to provide a great developer experience, high performance, and scalability.
 
 #### Current Status
-The Record Box project is currently in development and is not yet finished. Some of the key features that are currently being worked on include:
+The Record Box project is currently under development and is not yet complete. The team is working on several key features, including:
 
-<li>User authentication and authorization</li>
-<li>Record recommendation submissions</li>
-<li>Record recommendation browsing</li>
+User authentication and authorization
+Record recommendation submissions
+Record recommendation browsing
+The project has been released to users in its initial version, allowing them to add records they like and add songs. Future features will include user-to-user chatting, integration with the Spotify API to enable users to listen to suggested albums directly in the app, and more.
 
 ### Contributing
 
